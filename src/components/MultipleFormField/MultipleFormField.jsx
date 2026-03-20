@@ -24,21 +24,10 @@ const sendData = (formData) => {
 };
 
 export const MultipleFormField = () => {
-  // const [email, setEmail] = useState("");
-  // const [login, setLogin] = useState("");
-  // const [password, setPassword] = useState("");
-
-  // const [formdata, setFormdata] = useState({
-  //   email: "",
-  //   login: "",
-  //   password: "",
-  // });
   const { getState, updateState, resetState } = useStore();
 
   const onSubmit = (event) => {
     event.preventDefault();
-    // sendData({ email, login, password });
-    // sendData(initialState);
     sendData(getState());
   };
 
@@ -54,56 +43,28 @@ export const MultipleFormField = () => {
           type="email"
           name="email"
           value={email}
-          // value={formdata.email}
           placeholder="Email"
-          // onChange={({ target }) => setEmail(target.value)}
-          onChange={
-            // ({ target }) => updateState("email", target.value)
-            onChange
-            // setFormdata({
-            //   ...formdata,
-            //   email: target.value,
-            // })
-          }
+          onChange={onChange}
         />
         <input
           type="text"
           name="login"
           value={login}
-          // value={formdata.login}
           placeholder="login"
-          // onChange={({ target }) => setLogin(target.value)}
-          onChange={
-            // ({ target }) => updateState("login", target.value)
-            onChange
-            // setFormdata({
-            //   ...formdata,
-            //   login: target.value,
-            // })
-          }
+          onChange={onChange}
         />
         <input
           type="password"
           name="password"
           value={password}
-          // value={formdata.password}
           placeholder="Password"
-          // onChange={({ target }) => setPassword(target.value)}
-          onChange={
-            // ({ target }) => updateState("password", target.value)
-            onChange
-            // setFormdata({
-            //   ...formdata,
-            //   password: target.value,
-            // })
-          }
+          onChange={onChange}
         />
         <input
           type="phone"
           name="phone"
           value={phone}
           placeholder="Phone"
-          // onChange={({ target }) => updateState("phone", target.value)}
           onChange={onChange}
         />
         <button onClick={resetState}>Reset</button>
