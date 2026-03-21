@@ -1,5 +1,29 @@
+import * as yup from "yup";
 import styles from "./Yup.module.css";
 import { useState } from "react";
+
+// creating a scheme
+const loginChangeScheme = yup
+  .string()
+  .matches(
+    /^[\w_]*$/,
+    "invalid login. Allowed symbols -- letters, numbers and underline",
+  )
+  .max(20, "invalid login. Allowed symbols -- letters, numbers and underline");
+
+const loginBlurScheme = yup
+  .string()
+  .min(3, "Invalid login. There shoud be at least 3 symbols.");
+
+const validateAndGetErrorMessage = (scheme, value) => {
+  let errorMessage = null;
+  try {
+    scheme.validateSync(value);
+  } catch ({ errors }) {
+    errorMessage = errors[0];
+  }
+  return errorMessage;
+};
 
 export const Yup = () => {
   const [login, setLogin] = useState("");
@@ -7,26 +31,19 @@ export const Yup = () => {
 
   const onLoginChange = ({ target }) => {
     setLogin(target.value);
-    let error = null;
-    if (!/^[\w_]*$/.test(target.value)) {
-      error =
-        "invalid login. Allowed symbols -- letters, numbers and underline";
-    } else if (target.value.length > 20) {
-      error = "Invalid login. There should be no more 20 symbols";
-    }
+    const error = validateAndGetErrorMessage(loginChangeScheme, target.value);
 
+    setLoginError(error);
+  };
+
+  const onLoginBlur = () => {
+    const error = validateAndGetErrorMessage(loginBlurScheme, login);
     setLoginError(error);
   };
 
   const onSubmit = (event) => {
     event.preventDefault();
     console.log(login);
-  };
-
-  const onLoginBlur = () => {
-    if (login.length < 3) {
-      setLoginError("Invalid login. There shoud be at least 3 symbols.");
-    }
   };
 
   return (
