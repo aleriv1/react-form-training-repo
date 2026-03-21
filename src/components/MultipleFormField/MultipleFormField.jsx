@@ -67,7 +67,9 @@ export const MultipleFormField = () => {
           placeholder="Phone"
           onChange={onChange}
         />
-        <button onClick={resetState}>Reset</button>
+        <button type="button" onClick={resetState}>
+          Reset
+        </button>
         <button>Send</button>
       </form>
       <hr />
