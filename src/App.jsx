@@ -5,13 +5,15 @@ import { ControlledUncontrolledFields } from "./components/ControlledUncontrolle
 import { MultipleFormField } from "./components/MultipleFormField/MultipleFormField";
 import { WorkWithSelect } from "./components/WorkWithSelect/WorkWithSelect";
 import { ReactSelectLibrary } from "./components/ReactSelectLibrary/ReactSelectLibrary";
+import { FormValidation } from "./components/FormValidation/FormValidation";
 
 function App() {
   const [value, setValue] = useState("");
 
   return (
     <>
-      <ReactSelectLibrary />
+      <FormValidation />
+      {/* <ReactSelectLibrary /> */}
       {/* <WorkWithSelect /> */}
       {/* <MultipleFormField /> */}
       {/* <Test /> */}
