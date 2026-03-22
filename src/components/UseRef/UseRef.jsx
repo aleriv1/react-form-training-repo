@@ -1,5 +1,5 @@
 import * as yup from "yup";
-import styles from "./Yup.module.css";
+import styles from "./UseRef.module.scss";
 import { useState } from "react";
 
 // creating a scheme
@@ -32,7 +32,7 @@ const validateAndGetErrorMessage = (scheme, value) => {
   return errorMessage;
 };
 
-export const Yup = () => {
+export const UseRef = () => {
   const [login, setLogin] = useState("");
   const [loginError, setLoginError] = useState(null);
 

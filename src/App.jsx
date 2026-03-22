@@ -6,14 +6,16 @@ import { MultipleFormField } from "./components/MultipleFormField/MultipleFormFi
 import { WorkWithSelect } from "./components/WorkWithSelect/WorkWithSelect";
 import { ReactSelectLibrary } from "./components/ReactSelectLibrary/ReactSelectLibrary";
 import { FormValidation } from "./components/FormValidation/FormValidation";
-import { Yup } from "./components/Yup/Yup";
+// import { Yup } from "./components/Yup/Yup";
+import { UseRef } from "./components/UseRef/UseRef";
 
 function App() {
   const [value, setValue] = useState("");
 
   return (
     <>
-      <Yup />
+      <UseRef />
+      {/* <Yup /> */}
       {/* <FormValidation /> */}
       {/* <ReactSelectLibrary /> */}
       {/* <WorkWithSelect /> */}

@@ -14,19 +14,18 @@ export const FormValidation = () => {
     } else if (target.value.length > 20) {
       error = "Invalid login. There should be no more 20 symbols";
     }
-
     setLoginError(error);
-  };
-
-  const onSubmit = (event) => {
-    event.preventDefault();
-    console.log(login);
   };
 
   const onLoginBlur = () => {
     if (login.length < 3) {
       setLoginError("Invalid login. There shoud be at least 3 symbols.");
     }
+  };
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    console.log(login);
   };
 
   return (
