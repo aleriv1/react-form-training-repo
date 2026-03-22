@@ -1,6 +1,6 @@
 import * as yup from "yup";
 import styles from "./UseRef.module.scss";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 // creating a scheme
 const loginChangeScheme = yup
@@ -36,10 +36,17 @@ export const UseRef = () => {
   const [login, setLogin] = useState("");
   const [loginError, setLoginError] = useState(null);
 
+  const submitButtonRef = useRef(null);
+
   const onLoginChange = ({ target }) => {
     setLogin(target.value);
     const error = validateAndGetErrorMessage(loginChangeScheme, target.value);
     setLoginError(error);
+
+    if (target.value.length === 20) {
+      console.log(submitButtonRef);
+      submitButtonRef.current.focus();
+    }
   };
 
   const onLoginBlur = () => {
@@ -65,7 +72,13 @@ export const UseRef = () => {
           onChange={onLoginChange}
           onBlur={onLoginBlur}
         />
-        <button disabled={loginError !== null}>Send</button>
+        <button
+          className="button"
+          ref={submitButtonRef}
+          disabled={loginError !== null}
+        >
+          Send
+        </button>
       </form>
     </>
   );
