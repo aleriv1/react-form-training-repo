@@ -1,8 +1,8 @@
-import styles from "./ReactHookForm.module.scss";
+import styles from "./ReactHookFormWithYup.module.scss";
 import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 
-export const ReactHookForm = () => {
+export const ReactHookFormWithYup = () => {
   const {
     register, // the method that returns usual props for input which it understands (it returns the objects)
     handleSubmit,
